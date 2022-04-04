@@ -1,3 +1,3 @@
-# web-platform-ezf7yh
+# XFish's web journey
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/web-platform-ezf7yh)
+This is XFish's web journey!!

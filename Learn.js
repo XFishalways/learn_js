@@ -1,13 +1,10 @@
-let base = prompt("type number x", "");
-let time = prompt("type number n", "");
-
-function mi(base, time){
-  let result = base;
-  for(let i = 1; i<time; i++){
-    result *= base;
-  }
-  alert(result);
+function ask(question, yes, no) {
+  if (confirm(question)) yes();
+  else no();
 }
 
-mi(base, time);
+ask("Do you agree?", () => alert("You agreed."), () => alert("You canceled the execution."));
 
+let s = "hhh";
+
+alert(typeof s);

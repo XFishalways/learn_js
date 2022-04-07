@@ -1,10 +1,14 @@
-function ask(question, yes, no) {
-  if (confirm(question)) yes();
-  else no();
+let schedule = {};
+
+alert( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "get up";
+
+alert( isEmpty(schedule) ); // false
+
+function isEmpty(schedule){
+  for (let key in schedule){
+    return "false";
+  }
+  return "ture";
 }
-
-ask("Do you agree?", () => alert("You agreed."), () => alert("You canceled the execution."));
-
-let s = "hhh";
-
-alert(typeof s);

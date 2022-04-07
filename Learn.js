@@ -1,14 +1,19 @@
-let schedule = {};
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
 
-alert( isEmpty(schedule) ); // true
+multiplyNumeric(menu);
 
-schedule["8:30"] = "get up";
-
-alert( isEmpty(schedule) ); // false
-
-function isEmpty(schedule){
-  for (let key in schedule){
-    return "false";
+function multiplyNumeric(obj) {
+  for (value in obj) {
+    if (typeof obj[value] != "number") return;
+    obj[value] *= 2;
   }
-  return "ture";
+}
+
+for (key in menu) {
+  alert(key);
+  alert(menu[key]);
 }

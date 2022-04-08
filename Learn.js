@@ -1,10 +1,12 @@
-function Accumulator (value) {
-  this.value = +value;
-  this.read = function () {
-    this.addValue = +prompt ("type a number", "");
-    this.value += this.addValue;
-  };
-}
+class Accumulator {
+  constructor(value) {
+    this.value=+value;
+    this.read=function() {
+      this.addValue=+prompt("type a number","");
+      this.value+=this.addValue;
+      };
+    }
+  }
 
 let accumulator = new Accumulator(1); // 初始值 1
 

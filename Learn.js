@@ -1,14 +1,14 @@
-function Accumulator (value) {
-  this.value = +value;
-  this.read = function () {
-    this.addValue = +prompt ("type a number", "");
-    this.value += this.addValue;
-  };
-}
+let user = {
+  name: "John",
+  money: 1000,
 
-let accumulator = new Accumulator(1); // 初始值 1
+  [Symbol.toPrimitive](hint) {
+    alert(`hint: ${hint}`);
+    return hint == "string" ? `{name: "${this.name}"}` : this.money;
+  }
+};
 
-accumulator.read(); // 添加用户输入的 value
-accumulator.read(); // 添加用户输入的 value
-
-alert(accumulator.value); // 显示这些值的总和
+// 转换演示：
+alert(user); // hint: string -> {name: "John"}
+alert(+user); // hint: number -> 1000
+alert(user + 500); // hint: default -> 1500

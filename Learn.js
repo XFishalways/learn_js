@@ -1,17 +1,25 @@
-function filterRange (arr, a, b) {
-    let filteredarr = [];
-    for(let num in arr) {
-        if (+num >= a && +num <= b) {
-            filteredarr.push(num);
-        }
+function Calculator() {
+    this.method = {
+        "+": (a, b) => +a + +b,
+        "-": (a, b) => a - b,
     }
-    return filteredarr;
+    this.addMethod = function (way, func) {
+        this.method[way] = func;
+    }
+    this.calculate = function (str) {
+        let realstr = str.split(" ");
+        return this.method[realstr[1]](realstr[0], realstr[2]);
+    }
 }
 
-let arr = [5, 3, 8, 1];
+let calc = new Calculator;
 
-let filtered = filterRange(arr, 1, 4);
+alert( calc.calculate("3 + 7") ); // 10
 
-alert( filtered ); // 3,1（匹配值）
+let powerCalc = new Calculator;
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
 
-alert( arr ); // 5,3,8,1（未修改）
+let result = powerCalc.calculate("2 ** 3");
+alert( result ); // 8

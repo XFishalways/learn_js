@@ -1,15 +1,25 @@
-let john = { name: "John", age: 25 };
-let pete = { name: "Pete", age: 30 };
-let mary = { name: "Mary", age: 29 };
+let users = [
+  {id: 'john', name: "John Smith", age: 20},
+  {id: 'ann', name: "Ann Smith", age: 24},
+  {id: 'pete', name: "Pete Peterson", age: 31},
+];
 
-let arr = [ john, pete, mary ];
+let usersById = groupById(users);
 
-alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+/*
+// 调用函数后，我们应该得到：
 
-function getAverageAge(arr) {
-  let sum = 0;
-  for (num of arr) {
-    sum += +num.age;
-  }
-  return sum/arr.length;
+usersById = {
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
 }
+*/
+
+function groupById(user) {
+  return user.reduce((object, value) => {
+    object[value.id] = value; 
+    return object;
+  }, {})
+}
+

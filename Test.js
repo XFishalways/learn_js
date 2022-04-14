@@ -1,13 +1,15 @@
-let john = { name: "John", surname: "Smith", id: 1 };
-let pete = { name: "Pete", surname: "Hunt", id: 2 };
-let mary = { name: "Mary", surname: "Key", id: 3 };
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 29 };
 
-let users = [ john, pete, mary ];
+let arr = [ john, pete, mary ];
 
-let usersMapped = users.map(user => ( {
-    fullName : `${user.name} ${user.surname}`,
-    id : user.id,
-}));
+alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 
-alert( usersMapped[0].id ) // 1
-alert( usersMapped[0].fullName ) // John Smith
+function getAverageAge(arr) {
+  let sum = 0;
+  for (num of arr) {
+    sum += +num.age;
+  }
+  return sum/arr.length;
+}

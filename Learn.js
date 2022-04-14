@@ -1,6 +1,7 @@
 function unique(arr) {
   return arr.filter((item, index) => {
     console.log(item, index);
+    console.log(arr.indexOf(item));
     // console.log(arr.indexOf(item)+'---'+index
     // 第一次 cc 索引2 过滤后的索引2
     // 第二次 cc 索引2 过滤后的索引3

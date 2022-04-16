@@ -1,9 +1,8 @@
-let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+let map = new Map();
 
-alert( aclean(arr) ); // "nap,teachers,ear" or "PAN,cheaters,era"
+map.set("name", "John");
 
-function aclean(arr) {
-    let clean_arr = [];
-    for(let i = 0; i <= arr.length; i++) {
-    }return clean_arr;
-}
+let keys = map.keys();
+let nbkeys = Array.from(keys);
+// Error: keys.push is not a function
+keys.push("more");

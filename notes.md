@@ -24,7 +24,7 @@ arr.reduce()最后要有初始值0
 数组中只有splice, sort, reverse可以修改原数组 
 sort中(a, b) => a - b是从小到大
 
-## Map
+## Map && Set
 
 new Map(Object.entries(obj))转换对象为map  
 map迭代顺序与插入顺序相同 不像对象受整数排序的影响  
@@ -32,6 +32,8 @@ map迭代顺序与插入顺序相同 不像对象受整数排序的影响
 一个具有 [key, value] 键值对的数组 可以用来初始化map 也可以被Object.fromEntries()转为对象  
 let obj = Object.fromEntries(map) 从map创建一个普通对象 省去 ".entries"  
 set.keys()和set.values()一样  
+map.set时如果key相同则后存储的替换之前存储的 和obj一样  
+map.keys() 返回的是可迭代对象(Map-iterator)而非数组 要用Array.from转为数组
 
 
 

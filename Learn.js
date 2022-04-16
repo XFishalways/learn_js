@@ -1,5 +1,9 @@
-let arr = [1, 3, 6, 2];
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
-arr.sort((a, b) => a - b);
+alert( aclean(arr) ); // "nap,teachers,ear" or "PAN,cheaters,era"
 
-alert(arr);
+function aclean(arr) {
+    let clean_arr = [];
+    for(let i = 0; i <= arr.length; i++) {
+    }return clean_arr;
+}

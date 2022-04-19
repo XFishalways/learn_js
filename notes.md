@@ -72,4 +72,9 @@ ladder.up().up().down().showStep().down().showStep();
 - 可以只提取需要的变量
 - 前面没有let的话就要在最外侧加() 以免被当成代码块
 - 做函数参数时赋的值为默认值
-- 
+
+## 日期 && 时间
+
+- getFullYear(), getDate(), getDay(), getTime, getTimezoneOffset() 最后两个没有UTC变体 所有Time都没有UTC
+- 超过范围会自动校准 自动进位 => 闰年不用管
+- Date.now()更快

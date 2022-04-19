@@ -1,14 +1,12 @@
-let cc = "4556364607935616";
+let salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 250
+  };
 
-alert(maskify(cc));
-
-function maskify(cc) {
-    if (cc.length > 4) {
-        let newcc = new String();
-        for (let i = 0; i < cc.length-4; i++){
-            newcc = newcc + "#";
-        }
-        return newcc + cc.slice(-4);
-    }
-    return cc;
+function topSalary(object) {
+    let {John, Pete, Mary} = salaries;
+    return Math.max(John, Pete, Mary);
 }
+
+alert(topSalary(salaries));

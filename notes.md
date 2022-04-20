@@ -81,4 +81,19 @@ ladder.up().up().down().showStep().down().showStep();
 
 ## json
 
+- 单引号会被转为双引号 json中无反引号和单引号
+- json会忽略js特有的对象属性 如：
+  函数属性（方法） Symbol 类型的键和值 存储 undefined 的属性
+- 支持嵌套限制 但不能有循环引入
+- JSON.stringify(user, null, 2) 最后一个值是表示缩进空格数量 { }内换行这种 仅用于日志记录和美化输出
+- toJSON会优先被调用 toJSON中要return 可用this
+- json不支持注释
+- 使用使用 reviver 就是括号中的第二个 通过写function来转换字符串为正常Date
+- stringify的function内如果有if 注意`key != ""` (第一个调用时 value 是对象本身)
+
+# 函数进阶
+
+## 递归 && 堆栈
+
+- 递归深度
 - 

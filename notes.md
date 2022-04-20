@@ -78,4 +78,7 @@ ladder.up().up().down().showStep().down().showStep();
 - 超过范围会自动校准 自动进位 => 闰年不用管
 - Date.now()更快
 - 格式化日期可以用数组 然后再对数组做操作 再join起来return
+
+## json
+
 - 

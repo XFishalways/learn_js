@@ -5,9 +5,8 @@
 
 # KEYS!!!
 
-## 可迭代对象：
-
-list, set, map, string
+- 可迭代对象： list, set, map, string
+- slice既可以用在字符串 也可以用在数组
 
 # 对象
 
@@ -78,3 +77,5 @@ ladder.up().up().down().showStep().down().showStep();
 - getFullYear(), getDate(), getDay(), getTime, getTimezoneOffset() 最后两个没有UTC变体 所有Time都没有UTC
 - 超过范围会自动校准 自动进位 => 闰年不用管
 - Date.now()更快
+- 格式化日期可以用数组 然后再对数组做操作 再join起来return
+- 

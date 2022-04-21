@@ -2,6 +2,7 @@
 
 - typeof() 结果应加"", 如"number"  
 - !运算级最高
+- 箭头函数没有thisthis 没有arguments
 
 # KEYS!!!
 
@@ -106,3 +107,15 @@ ladder.up().up().down().showStep().down().showStep();
 - 把想要改位置的接口赋给目标接口 如 list.next = list.next.next 原位置的value会被移除
 - 链表无法直接通过编号获取元素
 
+## Rest参数
+
+- 获取的是数组
+- 不能写在中间位置
+
+## Spread语法
+
+- 将可迭代对象转为参数 => 用于数组和字符串都可以
+- 用法: Math.max(1, ...arr1, 2, ...arr2, 25)
+- 可以用来合并数组 or 将字符串转换为字符数组 [0, ...arr, 2, ...arr2], [...str]
+- [...str] 和 Array.from(str) 相同
+- 

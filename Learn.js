@@ -1,9 +1,25 @@
-function pow(x, n) {
-    if (n == 1) {
-        return x;
-    } else {
-        return x * pow(x, n - 1);
+let list = {
+    value: 1,
+    next: {
+      value: 2,
+      next: {
+        value: 3,
+        next: {
+          value: 4,
+          next: null
+        }
+      }
     }
-}
+  };
+  
+  function printList(list) {
+  
+    if (list.next) {
+      printList(list.next); // 链表中其余部分同理
+    }
 
-alert( pow(2, 3) );
+    alert(list.value); // 输出当前元素
+  
+  }
+  
+  printList(list);

@@ -91,6 +91,7 @@ ladder.up().up().down().showStep().down().showStep();
 - json不支持注释
 - 使用使用 reviver 就是括号中的第二个 通过写function来转换字符串为正常Date
 - stringify的function内如果有if 注意`key != ""` (第一个调用时 value 是对象本身)
+- 可以用json来比较内容
 
 # 函数进阶
 
@@ -117,5 +118,5 @@ ladder.up().up().down().showStep().down().showStep();
 - 将可迭代对象转为参数 => 用于数组和字符串都可以
 - 用法: Math.max(1, ...arr1, 2, ...arr2, 25)
 - 可以用来合并数组 or 将字符串转换为字符数组 [0, ...arr, 2, ...arr2], [...str]
-- [...str] 和 Array.from(str) 相同
+- [...str] 和 Array.from(str) 基本相同 但Array.from()还可以用于类数组对象 更通用
 - 

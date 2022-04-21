@@ -127,7 +127,7 @@ ladder.up().up().down().showStep().down().showStep();
 
 ## 变量作用域
 
-如果从代码中可以明显看出有未使用的外部变量，那么就会将其删除 如: 
+- 如果从代码中可以明显看出有未使用的外部变量，那么就会将其删除 如: 
 function f() {
   let value = Math.random();
   function g() {
@@ -138,5 +138,19 @@ function f() {
 let g = f();
 g();
 
+- 在一个函数中return一个function 再用一个变量引用大的函数 return的那个function就成了新变量中的一个独立空间 如: 
+function makeCounter() {
+  let count = 0;
 
+  return function() {
+    return count++;
+  };
+}
+let counter = makeCounter();
+alert( counter() ); // 0
+alert( counter() ); // 1
+alert( counter() ); // 2
+
+首先 counter 对 makeCounter 的引用使counter.[[Environment]] 有对 {count: 0} 词法环境的引用
+随后调用 counter() 时，会为该调用创建一个新的词法环境 而当 counter() 中的代码查找 count 变量时，它首先搜索自己的词法环境 但为空 因为那里没有局部变量 然后查找到外部 makeCounter() 的词法环境 从而因 makeCounter() 中的 return function 而修改自身词法环境中的 count 变量 从而使 counter() 达到计数器的作用
 

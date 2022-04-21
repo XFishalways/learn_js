@@ -119,4 +119,4 @@ ladder.up().up().down().showStep().down().showStep();
 - 用法: Math.max(1, ...arr1, 2, ...arr2, 25)
 - 可以用来合并数组 or 将字符串转换为字符数组 [0, ...arr, 2, ...arr2], [...str]
 - [...str] 和 Array.from(str) 基本相同 但Array.from()还可以用于类数组对象 更通用
-- 
+- 浅拷贝 对数组和对象都可 [...array] or {...obj}

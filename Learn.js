@@ -1,4 +1,4 @@
-let obj = { a: 1, b: 2, c: 3 };
+let obj = { a: "r", b: 2, c: 3 };
 
 let objCopy = { ...obj }; // 将对象 spread 到参数列表中
                           // 然后将结果返回到一个新对象

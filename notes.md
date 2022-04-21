@@ -95,5 +95,14 @@ ladder.up().up().down().showStep().down().showStep();
 
 ## 递归 && 堆栈
 
-- 递归深度
-- 
+- 递归深度 递归深度为上下文最大值
+- 当前上下文被“记录”在堆栈的顶部 为子调用创建新的上下 当子调用结束后 前一个上下文被从堆栈中弹出，并继续执行
+- 上下文占用内存
+
+## 链表
+
+- 通过递归定义 使用value: 和next: {}
+- 使用next: null结束 list = {value: , next: anotherList}在头部插入
+- 把想要改位置的接口赋给目标接口 如 list.next = list.next.next 原位置的value会被移除
+- 链表无法直接通过编号获取元素
+

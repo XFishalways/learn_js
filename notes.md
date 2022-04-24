@@ -124,13 +124,15 @@ ladder.up().up().down().showStep().down().showStep();
 ## 闭包
 
 闭包 是指内部函数总是可以访问其所在的外部函数中声明的变量和参数，即使在其外部函数被返回（寿命终结）了之后。在某些编程语言中，这是不可能的，或者应该以特殊的方式编写函数来实现。但是如上所述，在 JavaScript 中，所有函数都是天生闭包的（只有一个例外，将在 "new Function" 语法 中讲到）。也就是说：JavaScript 中的函数会自动通过隐藏的 [[Environment]] 属性记住创建它们的位置，所以它们都可以访问外部变量。 如:  
-  
+
 function sum(a) {  
   return function(b) {  
   return a + b; // 从外部词法环境获得 "a"  
   };  
 }  
 alert( sum(1)(2) ); // 3
+
+可避免全局变量 隐藏变量到外层函数中
 
 ## 变量作用域
 
@@ -161,3 +163,9 @@ alert( counter() ); // 2
 首先 counter 对 makeCounter 的引用使counter.[[Environment]] 有对 {count: 0} 词法环境的引用
 随后调用 counter() 时，会为该调用创建一个新的词法环境 而当 counter() 中的代码查找 count 变量时，它首先搜索自己的词法环境 但为空 因为那里没有局部变量 然后查找到外部 makeCounter() 的词法环境 从而因 makeCounter() 中的 return function 而修改自身词法环境中的 count 变量 从而使 counter() 达到计数器的作用
 
+## var
+
+- 没有块级作用域
+- 可以重复声明
+- 和函数一样 在开头就会被定义 但赋值操作会保留到最后
+- 立即调用函数表达式IIFE (function() {})()

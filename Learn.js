@@ -1,19 +1,23 @@
-/* .. inBetween 和 inArray 的代码 */
-let arr = [1, 2, 3, 4, 5, 6, 7];
+function makeArmy() {
+    let shooters = [];
 
-alert( arr.filter(inBetween(3, 6)) ); // 3,4,5,6
-
-alert( arr.filter(inArray([1, 2, 10])) ); // 1,2
-
-function inBetween(a, b) {
-
-}
-
-function inArray(child) {
-    let result = []
-    for (let num of child) {
-        if (arr.includes(num))
-            result.push(num);
+    let i = 0;
+    while (i < 10) {
+        let j = i;
+        let shooter = function() { // 创建一个 shooter 函数，
+            alert( j ); // 应该显示其编号
+        };
+        i++;
+        shooters.push(shooter); // 将此 shooter 函数添加到数组中
     }
-    return result.toString();
+
+    // ……返回 shooters 数组
+    return shooters;
 }
+
+let army = makeArmy();
+
+// ……所有的 shooter 显示的都是 10，而不是它们的编号 0, 1, 2, 3...
+army[0](); // 编号为 0 的 shooter 显示的是 10
+army[1](); // 编号为 1 的 shooter 显示的是 10
+army[2](); // 10，其他的也是这样。

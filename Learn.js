@@ -1,27 +1,9 @@
-function makeCounter() {
+sum(1)(2) == 3; // 1 + 2
+sum(1)(2)(3) == 6; // 1 + 2 + 3
+sum(5)(-1)(2) == 6
+sum(6)(-1)(-2)(-3) == 0
+sum(0)(1)(2)(3)(4)(5) == 15
 
-  function counter () {
-      return counter.count++;
-  }  
-
-  counter.count = 0;
-
-  counter.set(num) = num => counter.count = num;
-
-  counter.decrease = () => counter.count--;
-
-  return counter;
+function sum(num1) {
+  
 }
-  
-let counter = makeCounter();
-  
-alert( counter() ); // 0
-alert( counter() ); // 1
-  
-counter.set(10); // set the new count
-  
-alert( counter() ); // 10
-  
-counter.decrease(); // decrease the count by 1
-  
-alert( counter() ); // 10 (instead of 11)

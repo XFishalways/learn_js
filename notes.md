@@ -150,7 +150,6 @@ g();
 - 在一个函数中return一个function 再用一个变量引用大的函数 return的那个function就成了新变量中的一个独立空间 如:   
 function makeCounter() {  
   let count = 0;  
-
   return function() {  
     return count++;  
   };  

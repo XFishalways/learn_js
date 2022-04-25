@@ -1,23 +1,27 @@
-function makeArmy() {
-    let shooters = [];
+function makeCounter() {
 
-    let i = 0;
-    while (i < 10) {
-        let j = i;
-        let shooter = function() { // 创建一个 shooter 函数，
-            alert( j ); // 应该显示其编号
-        };
-        i++;
-        shooters.push(shooter); // 将此 shooter 函数添加到数组中
-    }
+  function counter () {
+      return counter.count++;
+  }  
 
-    // ……返回 shooters 数组
-    return shooters;
+  counter.count = 0;
+
+  counter.set(num) = num => counter.count = num;
+
+  counter.decrease = () => counter.count--;
+
+  return counter;
 }
-
-let army = makeArmy();
-
-// ……所有的 shooter 显示的都是 10，而不是它们的编号 0, 1, 2, 3...
-army[0](); // 编号为 0 的 shooter 显示的是 10
-army[1](); // 编号为 1 的 shooter 显示的是 10
-army[2](); // 10，其他的也是这样。
+  
+let counter = makeCounter();
+  
+alert( counter() ); // 0
+alert( counter() ); // 1
+  
+counter.set(10); // set the new count
+  
+alert( counter() ); // 10
+  
+counter.decrease(); // decrease the count by 1
+  
+alert( counter() ); // 10 (instead of 11)

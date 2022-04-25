@@ -2,7 +2,7 @@
 
 - typeof() 结果应加"", 如"number"  
 - !运算级最高
-- 箭头函数没有thisthis 没有arguments
+- 箭头函数没有this 没有arguments
 
 # KEYS!!!
 

@@ -1,20 +1,11 @@
-function sum(a) {
+alert(sum(1)(2))
+alert(sum(1)(2)(3)); // 1 + 2 + 3
 
-  let currentSum = a;
-
-  function f(b) {
-    currentSum += b;
-    return f;
+let s = function sum(num1) {
+  let a = function add(num1) {
+    add.sum += num1;
+    return add();
   }
-
-  f.toString = function() {
-    return currentSum;
-  };
-
-  return f;
+  add.sum = 0;
+  return s;
 }
-
-alert( sum(1)(2) ); // 3
-alert( sum(5)(-1)(2) ); // 6
-alert( sum(6)(-1)(-2)(-3) ); // 0
-alert( sum(0)(1)(2)(3)(4)(5) ); // 15

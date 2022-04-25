@@ -4,6 +4,8 @@ sum(5)(-1)(2) == 6
 sum(6)(-1)(-2)(-3) == 0
 sum(0)(1)(2)(3)(4)(5) == 15
 
-function sum(num1) {
-  
+let sum = function add(num1) {
+  let sum= 0;
+  sum += 1
+  return sum()
 }

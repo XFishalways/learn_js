@@ -8,8 +8,11 @@
 
 - 可迭代对象： list, set, map, string
 - slice既可以用在字符串 也可以用在数组
+- 深度克隆 let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 
 # 对象
+
+## 细节
 
 - key in object检验  
 - 可以直接functionName() {}  
@@ -19,6 +22,21 @@ ladder.up().up().down().showStep().down().showStep();
 - for in迭代时整数会被从小到大排序 其他的按创建顺序排序
 - let secret = Symbol("secretMessage") Symbol隐藏属性 其他位置不能访问 不可被遍历
 - 对象内创建Symbol: [secretNumber]: 123
+
+## 对象属性配置
+
+- writable, enumerable, configurable
+- Object.getOwnPropertyDescriptor(obj, propertyName)
+- 正常方法创建属性 那三个值均为true
+- 修改属性标志 && 创建属性 Object.defineProperty(obj, propertyName, {descriptor}) 如果通过此方法创建属性 则descriptor中没有的属性标志默认为false
+- configurable为false时不能修改和删除其他两个属性标志 但可以修改属性的值 也可以将 writable: true 更改为 false
+- Object.defineProperty只能定义一个属性 Object.defineProperties能定义多个属性
+- Object.getOwnPropertyDescriptors可更好的克隆对象  既可以复制symbol类型的和不可枚举的属性 也可以复制属性标志  
+let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
+
+## getter && setter
+
+- 
 
 #数据类型
 
@@ -184,3 +202,12 @@ func属于函数局部域 在外部不可见 => 用sayHi进行调用
 - 一般是在复杂的 Web 应用程序中，从服务器获取代码或者动态地从模板编译函数时才会使用
 - 在函数中使用 new Function 创建的函数的 [[Environment]] 并不指向当前的词法环境，而是指向全局环境 => 无闭包 不能访问外部变量 只能访问全局变量
 - 避免js发布时压缩程序替换函数名导致的重命名的变量不易寻找or引起歧义
+
+## 函数的计划调用
+
+- setTimeout|setInterval(func(仅函数名)|code, [delay], [arg1], [arg2], ...) 用箭头函数替代字符串传入
+- clearTimeout 取消
+- 弹窗时仍然在持续计时
+- 下一次调用在前一次调用完成时再调度 => 嵌套的setTimeout能确保延时的固定
+- setTimeout(func) 零延时 会在当前脚本全部执行完成后立即执行
+- 任何 setTimeout 都只会在当前代码执行完毕之后才会执行

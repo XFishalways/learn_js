@@ -2,7 +2,6 @@
 
 - typeof() 结果应加"", 如"number"  
 - !运算级最高
-- 箭头函数没有this 没有arguments
 
 # KEYS!!!
 
@@ -212,3 +211,7 @@ func属于函数局部域 在外部不可见 => 用sayHi进行调用
 - 下一次调用在前一次调用完成时再调度 => 嵌套的setTimeout能确保延时的固定
 - setTimeout(func) 零延时 会在当前脚本全部执行完成后立即执行
 - 任何 setTimeout 都只会在当前代码执行完毕之后才会执行
+
+## 箭头函数
+
+- 箭头函数没有this 没有arguments 没有new 没有super

@@ -36,6 +36,7 @@ let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 
 ## getter && setter
 
+- 和函数属性类似 但不是通过函数调用 而是直接读取
 - 
 
 #数据类型

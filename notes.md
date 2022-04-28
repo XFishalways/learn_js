@@ -2,7 +2,8 @@
 
 - typeof() 结果应加"", 如"number"  
 - !运算级最高
-- 对null做typeof会得到object 因为null被看作是对空对象的引用
+- 对null做typeof会得到object 因为null被看作是对空对象的引用 是一个空对象指针
+- 对声明过但未初始化和未声明的变量做typeof结果都是undefined
 - const最优先 let其次
 
 # KEYS!!!

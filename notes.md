@@ -2,7 +2,7 @@
 
 - typeof() 结果应加"", 如"number"  
 - !运算级最高
-- 对null做typeof会得到object
+- 对null做typeof会得到object 因为null被看作是对空对象的引用
 - const最优先 let其次
 
 # KEYS!!!

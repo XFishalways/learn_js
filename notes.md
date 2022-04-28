@@ -5,6 +5,7 @@
 - 对null做typeof会得到object 因为null被看作是对空对象的引用 是一个空对象指针
 - 对声明过但未初始化和未声明的变量做typeof结果都是undefined
 - const最优先 let其次
+- NaN Not a Number 表示本来要返回数值的操作失败了 如0/0
 
 # KEYS!!!
 

@@ -2,6 +2,7 @@
 
 - typeof() 结果应加"", 如"number"  
 - !运算级最高
+- 对null做typeof会得到object
 
 # KEYS!!!
 

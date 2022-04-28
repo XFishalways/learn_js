@@ -3,6 +3,7 @@
 - typeof() 结果应加"", 如"number"  
 - !运算级最高
 - 对null做typeof会得到object
+- const最优先 let其次
 
 # KEYS!!!
 

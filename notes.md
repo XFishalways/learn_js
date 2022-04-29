@@ -13,6 +13,8 @@
 - 可迭代对象： list, set, map, string
 - slice既可以用在字符串 也可以用在数组
 - 深度克隆 let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
+- 对象中以下划线 "_" 开头的属性是内部属性 不应该从对象外部进行访问 加不加下划线完全相同 只是指示这是私有的
+- 以下划线 "_" 开头的变量 函数都代表是私有的
 
 # 对象
 
@@ -40,8 +42,13 @@ let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 
 ## getter && setter
 
-- 和函数属性类似 但不是通过函数调用 而是直接读取
-- 
+- 和函数属性类似 但不是通过函数调用 而是直接读取 如：  
+get fullName() {} 通过user.fullName读取
+- getter解决调用 setter解决赋值
+- 对对象中属性进行赋值时将调用setter 可以修改对象中的属性
+- 访问器 可以用Object.defineProperty创建 使用get和set来传递描述符 且不能有value
+- getter/setter 可以用作“真实”属性值的包装器 对属性进行筛选
+- 创建可变化的附加属性 如年龄
 
 #数据类型
 
@@ -225,8 +232,8 @@ func属于函数局部域 在外部不可见 => 用sayHi进行调用
 
 - 一个经常调用的函数可以通过缓存将结果记录下来 用一个装饰器(属于wrapper函数(包装器)) 在函数中创建map来存缓存 用has判断 用set存入 再把这个函数赋给原函数名 使调用时先进入进入缓存函数 判断后选择性的执行主函数
 - 装饰器接受另一个函数并改变它的行为 将对func(x)的调用“包装”到缓存逻辑中
-- 使用分离的装饰器而不是改变主函数本身的原因:
-Decorator是可重用的 可以将它应用于另一个函数  
-缓存逻辑是独立的，它没有增加主函数本身的复杂性  
-可以组合多个装饰器
+- 使用分离的装饰器而不是改变主函数本身的原因:  
+1. Decorator是可重用的 可以将它应用于另一个函数
+2. 缓存逻辑是独立的，它没有增加主函数本身的复杂性  
+3. 可以组合多个装饰器
 - 

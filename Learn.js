@@ -1,13 +1,17 @@
 let user = {
-  name: "John"
+  get name() {
+    return this._name;
+  },
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Name is too short, need at least 4 characters");
+      return;
+    }
+    this._name = value;
+  }
 };
 
-Object.defineProperty(user, "name", {
-  configurable: false
-});
+user.name = "Pete";
 
-Object.defineProperty(user, "name", {configurable: true});
-
-const des = Object.getOwnPropertyDescriptor(user, "name");
-
-console.log(des.writable);
+alert(user.name === user._name);

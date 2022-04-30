@@ -1,17 +1,30 @@
-let user = {
-  get name() {
-    return this._name;
-  },
-
-  set name(value) {
-    if (value.length < 4) {
-      alert("Name is too short, need at least 4 characters");
-      return;
-    }
-    this._name = value;
+let worker = {
+  slow(min, max) {
+    alert(`Called with ${min},${max}`);
+    return min + max;
   }
 };
 
-user.name = "Pete";
+function cachingDecorator(func, hash) {
+  let cache = new Map();
+  return function() {
+    let key = hash(arguments); // (*)
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
 
-alert(user.name === user._name);
+    let result = func.call(this, ...arguments); // (**)
+
+    cache.set(key, result);
+    return result;
+  };
+}
+
+function hash(args) {
+  return args[0] + ',' + args[1];
+}
+
+worker.slow = cachingDecorator(worker.slow, hash);
+
+alert( worker.slow(3, 5) ); // works
+alert( "Again " + worker.slow(3, 5) ); // same (cached)

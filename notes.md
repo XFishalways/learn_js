@@ -245,4 +245,5 @@ func属于函数局部域 在外部不可见 => 用sayHi进行调用
 - 多参数的函数用哈希函数 哈希函数将数组转为中间有","分隔的"字符串组" 装饰器传入hash let key = hash(arguments) func.call用...rest接收数组 调用时正常输入
 - func.call(context, ...args) == func.apply(context, args) apply更好更快
 - 呼叫转移（call forwarding): 将所有参数连同上下文一起传递给另一个函数 这种无法被区分
-- 
+- 哈希函数中不能直接arguments.join() 要[].join.call(arguments) 方法借用
+- 被装饰后的函数不会提供原来的属性

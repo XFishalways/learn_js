@@ -1,30 +1,21 @@
-let worker = {
-  slow(min, max) {
-    alert(`Called with ${min},${max}`);
-    return min + max;
-  }
-};
+function f(x) {
+  alert(x);
+}
 
-function cachingDecorator(func, hash) {
-  let cache = new Map();
-  return function() {
-    let key = hash(arguments); // (*)
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
+// create wrappers
+let f1000 = delay(f, 1000);
+let f1500 = delay(f, 1500);
 
-    let result = func.call(this, ...arguments); // (**)
+f1000("test"); // 在 1000ms 后显示 "test"
+f1500("test"); // 在 1500ms 后显示 "test"
 
-    cache.set(key, result);
-    return result;
+function delay(f, ms) {
+
+  return function(...args) {
+    let savedThis = this; // 将 this 存储到中间变量
+    setTimeout(function() {
+      f.apply(savedThis, args); // 在这儿使用它
+    }, ms);
   };
+
 }
-
-function hash(args) {
-  return args[0] + ',' + args[1];
-}
-
-worker.slow = cachingDecorator(worker.slow, hash);
-
-alert( worker.slow(3, 5) ); // works
-alert( "Again " + worker.slow(3, 5) ); // same (cached)

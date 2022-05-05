@@ -15,6 +15,7 @@
 - 深度克隆 let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 - 对象中以下划线 "_" 开头的属性是内部属性 不应该从对象外部进行访问 加不加下划线完全相同 只是指示这是私有的
 - 以下划线 "_" 开头的变量 函数都代表是私有的
+- 对象方法丢失this解决方法: 包装器 bind
 
 # 对象
 
@@ -247,3 +248,8 @@ func属于函数局部域 在外部不可见 => 用sayHi进行调用
 - 呼叫转移（call forwarding): 将所有参数连同上下文一起传递给另一个函数 这种无法被区分
 - 哈希函数中不能直接arguments.join() 要[].join.call(arguments) 方法借用
 - 被装饰后的函数不会提供原来的属性
+
+## 函数绑定
+
+- 使用包装器时 如setTimeout 触发之前会有延迟 如果在延迟中改变了函数就会出问题
+- func.bind(context) 可以将一个外部函数的this和一个对象绑定

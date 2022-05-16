@@ -1,10 +1,15 @@
-let reverse = function(x) {
-  let arr = x.split("");
-  let rev = arr.reverse();
-  let join = rev.join("");
-  return join;
+function askPassword(ok, fail) {
+  let password = prompt("Password?", '');
+  if (password == "rockstar") ok();
+  else fail();
+}
+
+let user = {
+  name: 'John',
+
+  login(result) {
+    alert( this.name + (result ? ' logged in' : ' failed to log in') );
+  }
 };
 
-let str = "123";
-
-alert(reverse(str));
+askPassword(user.login.bind(user, true), user.login.bind(user, false)); // ?

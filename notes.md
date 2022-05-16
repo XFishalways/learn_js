@@ -47,6 +47,7 @@ let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 get fullName() {} 通过user.fullName读取
 - getter解决调用 setter解决赋值
 - 对对象中属性进行赋值时将调用setter 可以修改对象中的属性
+- 可用setter筛选过滤
 - 访问器 可以用Object.defineProperty创建 使用get和set来传递描述符 且不能有value
 - getter/setter 可以用作“真实”属性值的包装器 对属性进行筛选
 - 创建可变化的附加属性 如年龄
@@ -251,5 +252,10 @@ func属于函数局部域 在外部不可见 => 用sayHi进行调用
 
 ## 函数绑定
 
+- func.bind(context, [arg1], ...)
 - 使用包装器时 如setTimeout 触发之前会有延迟 如果在延迟中改变了函数就会出问题
-- func.bind(context) 可以将一个外部函数的this和一个对象绑定
+- 不传入context时写null
+- 通过bind传入参数确定函数一个参数的值(绑定参数)
+- 函数中没有this时 用包装器绑定参数
+- 重复绑定无效、
+- 

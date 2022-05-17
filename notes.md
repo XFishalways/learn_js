@@ -52,7 +52,14 @@ get fullName() {} 通过user.fullName读取
 - getter/setter 可以用作“真实”属性值的包装器 对属性进行筛选
 - 创建可变化的附加属性 如年龄
 
-#数据类型
+## 原型 && 继承
+
+- __proto__ 是 [[Prototype]] 的 getter/setter
+- 引用不能闭环
+- 调用时this是"."前的对象 不会影响原型 => 只修改自己的状态
+- 
+
+# 数据类型
 
 ## 数组方法
 

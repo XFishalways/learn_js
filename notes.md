@@ -57,7 +57,9 @@ get fullName() {} 通过user.fullName读取
 - __proto__ 是 [[Prototype]] 的 getter/setter
 - 引用不能闭环
 - 调用时this是"."前的对象 不会影响原型 => 只修改自己的状态
-- 
+- obj.hasOwnProperty(key) 是否有自己的属性
+- 键/值获取方法都忽略继承的属性 
+- 从对象和从原型链获取属性性能一样
 
 # 数据类型
 
